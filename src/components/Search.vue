@@ -25,6 +25,7 @@ body {
   background-color: #eee;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+
 }
 
 .search-div {
@@ -32,7 +33,7 @@ body {
   flex-direction: column;
   justify-content: center;
   /* padding: 0 30%;*/
-  margin-top: 3%;
+  margin-top: 4vh;
   align-items: center;
 }
 
@@ -41,7 +42,7 @@ body {
   min-width: 15%;
   height: 3em;
   border-radius: 1.5em;
-    border-color: white;
+  border-color: white;
   border-width: 2px;
 }
 
@@ -79,7 +80,6 @@ body {
   height: 50px;
   width: 110px;
   background: blue;
-
 }
 
 .search input:focus {

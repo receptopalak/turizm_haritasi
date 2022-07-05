@@ -30,11 +30,11 @@ export default {};
   flex-direction: row;
   justify-content: space-around;
   margin: 0 15%;
-  margin-top: 13%;
+  padding-top: 35vh;
 }
 
 .icon {
-  height: 5em;
+  height: 12vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,5 +43,10 @@ export default {};
 }
 .icon-text {
   margin-top: 1em;
+}
+@media screen and (max-width: 600px) {
+  .icon {
+    height: 4vh;
+  }
 }
 </style>

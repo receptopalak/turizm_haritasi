@@ -1,15 +1,14 @@
 <template>
-  <Navbar/>
-  <main>
-    <div class="container">
-      <Map></Map>
-    </div>
-  </main>
+  <Navbar />
+  <!-- <ExploreContent /> -->
+  <NewMap/>
 </template>
 
 <script setup>
-import Navbar from '../components/Navbar.vue'
-import Map from '../components/Map.vue'
+import Navbar from "../components/Navbar.vue";
+// import Map from "../components/Map.vue";
+// import ExploreContent from "../components/ExploreContent.vue";
+import NewMap from "../components/NewMap.vue";
 
 </script>
 

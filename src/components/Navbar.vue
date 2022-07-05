@@ -1,6 +1,9 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav  :class="{ fixedTop }"
+      class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"
+     
+    >
       <div class="container-fluid">
         <div class="logo-div ml-1">
           <img class="logo" src="../assets/bcekmece-logo.png" alt="" />
@@ -90,19 +93,27 @@
             </li>
             <li class="nav-item">
               <!--Sağlık-->
-              <RouterLink class="nav-link" to="/hospital"><font-awesome-icon icon="fa-solid fa-truck-medical" /> &nbsp; Sağlık</RouterLink>
+              <RouterLink class="nav-link" to="/hospital"
+                ><font-awesome-icon icon="fa-solid fa-truck-medical" /> &nbsp;
+                Sağlık</RouterLink
+              >
             </li>
             <li class="nav-item">
               <!--Turistik-->
-              <RouterLink class="nav-link" to="/cultural">       <font-awesome-icon  icon="fa-solid fa-landmark" />
- &nbsp; Turistik</RouterLink>
+              <RouterLink class="nav-link" to="/cultural">
+                <font-awesome-icon icon="fa-solid fa-landmark" /> &nbsp;
+                Turistik</RouterLink
+              >
             </li>
             <li class="nav-item">
               <!--Plajlar-->
-              <RouterLink class="nav-link" to="/beach"><font-awesome-icon icon="fa-solid fa-umbrella-beach" /> &nbsp; Plajlar</RouterLink>
+              <RouterLink class="nav-link" to="/beach"
+                ><font-awesome-icon icon="fa-solid fa-umbrella-beach" /> &nbsp;
+                Plajlar</RouterLink
+              >
             </li>
           </ul>
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto shortButton">
             <li class="nav-item">
               <a class="nav-link btn-bus" href="#">
                 <font-awesome-icon icon="fa-solid fa-bus-simple" />
@@ -133,13 +144,29 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from "vue-router";
+import { computed, onMounted,ref } from "@vue/runtime-core";
+import { RouterLink, RouterView, useRoute } from "vue-router";
 
-export default {};
+export default {
+  setup() {
+    const route = useRoute();
+    let fixedTop = ref();
+    onMounted(() => {
+      console.log(route.name);
+        fixedTop= (route.name == 'explore') ? 'fixed-top' : false
+        console.log(fixedTop)
+    });
+    computed(()=>{
+        
+    })
+    return{
+        fixedTop
+    }
+  },
+};
 </script>
 
 <style>
-
 @media all and (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
     display: none;
@@ -168,9 +195,12 @@ body {
 /* .navbar {
   background: #00000057;
 } */
+
+
 .logo {
   width: 35%;
   display: flex;
+  height: 35%;
 }
 
 .nav-item {
@@ -191,5 +221,13 @@ body {
   padding-left: 0.5em;
   font-weight: 100;
 }
-
+.navbar {
+    z-index: 1;
+}
+@media screen and (max-width: 600px){ 
+    .shortButton {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+}
 </style>
